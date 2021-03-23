@@ -42,6 +42,8 @@ def register():
     back = ttk.Button(right_frame, text='back', width=20, command=back_to_login)
     back.place(x=111, y=260)
     
+def login():
+    database_conn.check_login(user_entry.get(), password_entry.get())
 
 # create window
 window = Tk()
@@ -78,7 +80,7 @@ password_entry = ttk.Entry(right_frame, width=30, show='•')
 password_entry.place(x=165, y=165)
 
 # buttons
-login_button = ttk.Button(right_frame, text='Login', width=25)
+login_button = ttk.Button(right_frame, text='Login', width=25, command=login)
 login_button.place(x=95, y=220)
 
 register_button = ttk.Button(right_frame, text='Register', width=25, command=register)

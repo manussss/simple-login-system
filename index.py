@@ -2,10 +2,14 @@
 from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk
-import database
+import database_conn
 
 # change to register screen
 def register():
+    
+    def register_to_database():
+        database_conn.insert(name_entry.get(), email_entry.get(), user_entry.get(), password_entry.get())
+    
     login_button.place(x=5000)
     register_button.place(x=5000)
     
@@ -21,7 +25,7 @@ def register():
     email_entry = ttk.Entry(right_frame, width=41)
     email_entry.place(x=100, y=68)
     
-    window_register_button = ttk.Button(right_frame, text='Register', width=25)
+    window_register_button = ttk.Button(right_frame, text='Register', width=25, command=register_to_database)
     window_register_button.place(x=95, y=220)
     
     def back_to_login():
